@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+	name = wyokobe
+	email = wyokobe@users.noreply.github.com
+[color]
+	ui = true
+[alias]
+	gr = grep
+	df = diff
+	cm = commit
+	br = branch
+	co = checkout
+	st = status

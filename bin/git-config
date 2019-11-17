@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git config --local user.name "wyokobe"
+git config --local user.email "wyokobe@gmail.com"
+git config --list
