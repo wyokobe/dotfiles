@@ -7,7 +7,7 @@ fi
 
 DOTFILES_GITHUB="git@github.com:wyokobe/dotfiles.git"; export DOTFILES_GITHUB
 
-xcode-select --install
+[ "$(which xcode-select 2>/dev/null)" ] || xcode-select --install
 
 [ -d "$DOTPATH" ] || git clone --recursive "$DOTFILES_GITHUB" "$DOTPATH"
 
