@@ -1,6 +1,4 @@
 #!/bin/bash
-#
 # 実行したシェルスクリプトのおいてあるディレクトリを取得する
-
-echo $(dirname ${0})
-ls $(dirname ${0})
+echo $(dirname "${0}")
+ls $(dirname "${0}")

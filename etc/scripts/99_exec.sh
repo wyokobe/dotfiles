@@ -1,3 +1,2 @@
 #!/bin/bash
-
-exec $SHELL -l
+exec "$SHELL" -l

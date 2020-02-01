@@ -18,18 +18,18 @@ P_SKY="\[\033[36m\]"
 P_WHITE="\[\033[37m\]"
 # キー入力
 #stty stop undef     # Ctrl+S(stop)を常に無効
-alias df='df -h'     # ディスク空き領域(単位表示)
-alias less='less -r' # テキストファイルを日本語化して表示
-alias rm='rm -i'     # 削除前に確認
-alias ssh='ssh -A'   # SSH認証時にエージェントフォワード
-alias vbb="vim ~/.bashrc ~/.bash_profile"       # bashを編集
-alias sbb="source ~/.bash_profile"              # bashを反映
-alias cmd='(alias;declare -F) | less'           # コマンドリスト
-alias jsb='js-beautify -U "" -s 2 -r'           # ファイル整形
-function gg(){ grep -nir "$1" ./; }		# 簡易grep
-function ff(){ find . -name "*$1*"; }   # pwd以下を検索
-function ffgg(){ find . -name "*$1*" -type f | xargs grep -ni "$2"; } # 検索
-function gcom(){
+alias df='df -h'                                                       # ディスク空き領域(単位表示)
+alias less='less -r'                                                   # テキストファイルを日本語化して表示
+alias rm='rm -i'                                                       # 削除前に確認
+alias ssh='ssh -A'                                                     # SSH認証時にエージェントフォワード
+alias vbb="vim ~/.bashrc ~/.bash_profile"                              # bashを編集
+alias sbb="source ~/.bash_profile"                                     # bashを反映
+alias cmd='(alias;declare -F) | less'                                  # コマンドリスト
+alias jsb='js-beautify -U "" -s 2 -r'                                  # ファイル整形
+function gg() { grep -nir "$1" ./; }                                   # 簡易grep
+function ff() { find . -name "*$1*"; }                                 # pwd以下を検索
+function ffgg() { find . -name "*$1*" -type f | xargs grep -ni "$2"; } # 検索
+function gcom() {
   git add .
   echo -n "commit comment:"
   read line
@@ -49,7 +49,7 @@ darwin*)
   # 秘密鍵を確認し、ない場合は登録する
   ssh-add -l || ssh-add
   # sshのホスト名を補完する
-  [ -f `brew --prefix`/etc/bash_completion ] && . `brew --prefix`/etc/bash_completion
+  [ -f $(brew --prefix)/etc/bash_completion ] && . $(brew --prefix)/etc/bash_completion
   ;;
 linux*)
   P_COLOR=${P_SKY}
