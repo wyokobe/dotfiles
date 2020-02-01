@@ -36,6 +36,15 @@ function gcom() {
   git commit -m "$line"
   git push
 }
+function gop() {
+  ssh_url=$(git remote get-url origin)
+  user=${ssh_url%@*}
+  host_path=${ssh_url#*@}
+  host=${host_path%:*}
+  path=${host_path#*:}
+  path=${path%.git}
+  open "https://${host}/${path}"
+}
 #-------------------------------------------------------
 #   OS別設定
 #-------------------------------------------------------
