@@ -6,8 +6,8 @@ alias df='df -h'                                                       # ディ�
 alias less='less -r'                                                   # テキストファイルを日本語化して表示
 alias rm='rm -i'                                                       # 削除前に確認
 alias ssh='ssh -A'                                                     # SSH認証時にエージェントフォワード
-alias vbb="vim ~/.zshenv ~/.zprofile ~/.zshrc"  # 編集
-alias sbb="source ~/.zshenv ~/.zprofile ~/.zshrc"  # 反映
+alias vbb="vim ~/.zshenv ~/.zshrc"  # 編集
+alias sbb="source ~/.zshenv ~/.zshrc"  # 反映
 alias cmd='(alias;declare -F) | less'                                  # コマンドリスト
 alias jsb='js-beautify -U "" -s 2 -r'                                  # ファイル整形
 function gg() { grep -nir "$1" ./; }                                   # 簡易grep
@@ -20,19 +20,16 @@ function gcom() {
   git commit -m "$line"
   git push
 }
+## Githubを開く
 function gop() {
   ssh_url=$(git remote get-url origin)
-  user=${ssh_url%@*}
-  echo ${user}
+  echo ${ssh_url}
   host_path=${ssh_url#*@}
-  echo ${host_path}
   host=${host_path%:*}
-  echo ${host}
-  p=${host_path#*:}
-  echo ${p}
-  p=${p%.git}
-  echo ${p}
-  open "https://${host}/${p}"
+  p=${${host_path#*:}%.git}
+  url="https://${host}/${p}"
+  echo ${url}
+  open ${url}
 }
 ## anyenv
 [ -f ~/.anyenv/bin/anyenv ] && eval "$(anyenv init - zsh)"
